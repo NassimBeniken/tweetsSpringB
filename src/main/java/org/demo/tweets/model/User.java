@@ -12,6 +12,9 @@ import javax.validation.constraints.NotBlank;
 public class User {
     @NotBlank
     private String nickname;
+    /*
+        Permet de valider que cet attribut est une adresse mail valide
+     */
     @Email
     private String mail;
 
