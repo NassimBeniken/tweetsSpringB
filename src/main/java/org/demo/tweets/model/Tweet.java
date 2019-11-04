@@ -57,10 +57,19 @@ import java.time.LocalDateTime;
 @Document
 public class Tweet {
 
+    /*
+        Specifie que c'est la clé primaire
+     */
     @Id
     private String id;
+    /*
+        Permet de faire du suivi pour savoir qui et quand une donnée a été modifiée
+     */
     @CreatedDate
     private LocalDateTime created;
+    /*
+        Permet de faire du suivi pour savoir qui et quand une donnée a été modifiée
+     */
     @LastModifiedDate
     private LocalDateTime modified;
     @NotBlank(message = "text must not be blank")
@@ -70,9 +79,16 @@ public class Tweet {
     private User user;
     @NotNull
     private Source source;
+    /*
+        Signifie que cet attribut ne doit pas être persisté en base de données
+     */
     @Transient
     private String  etag;
 
+    /*
+        Precise que c'est ce constructeur qui sera utilisé pour créer les entités dans Mongo (évite les
+        ambuiguités avec d'autres constructeurs)
+     */
     @PersistenceConstructor
     public Tweet(String id, LocalDateTime created, LocalDateTime modified, String text, @NotNull User user, @NotNull Source source) {
         this.id = id;
