@@ -1,0 +1,42 @@
+swagger: "2.0"
+info:
+  description: "Tweet demo"
+  version: "1.0.0"
+  title: "Tweets"
+host: "localhost:8080"
+basePath: "/api/v1"
+schemes:
+  - "https"
+  - "http"
+paths:
+  /tweets:
+    post:
+      summary: "Create a new tweet"
+      description: ""
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      parameters:
+        - in: "body"
+          name: "body"
+          description: "Tweet to create"
+          required: true
+          schema:
+            $ref: "#/definitions/Tweet"
+      responses:
+        201:
+          description: "ok"
+          schema:
+            $ref: "#/definitions/Tweet"
+definitions:
+  Tweet:
+    type: object
+    properties:
+      text:
+        type: string
+      user:
+        type: string
+    required:
+      - user
+      - text
