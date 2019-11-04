@@ -33,11 +33,27 @@ import java.time.LocalDateTime;
     Tweet copieTweet = tweetBuilder.id(2).build(); //Ici du coup on a le meme que newTweet mais avec id=2
  */
 @Builder
-
-
+/*
+    Provient de Lombok aussi je crois
+    Permet de générer un constructeur sans arguments
+ */
 @NoArgsConstructor
+/*
+    Provient de Lombok
+    Permet de générer un constructeur avec tous les arguments
+ */
 @AllArgsConstructor
+/*
+    Provient de Lombok
+    Contient les annotations @Getter, @Setter, @ToString, @EqualsAndHashCode et @RequiredArgsConstructor
+    permet de générer toutes ces méthodes sans rien faire, tout est déjà écrit
+ */
 @Data
+/*
+    Pour Mongo
+    Permet de dire que cette classe va être mappée dans la base de données (sans information supplémentaire,
+    la collection sera tweet. On peut changer ça en mettant @Document(collection = "lesTweets"))
+ */
 @Document
 public class Tweet {
 
